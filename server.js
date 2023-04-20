@@ -1,7 +1,7 @@
-const crypto = require('node:crypto');
+const crypto = require('crypto');
 const {
     createSign,
-} = require('node:crypto');
+} = require('crypto');
 
 const fs = require('fs');
 
@@ -72,5 +72,23 @@ app.get('/la3/cert', (req, res) => {
     const cert = loadCert();
     res.send({ cert: cert });
 });
+//verify endpoint
+// app.post('/la3/register', (req, res) => {
+//     let accountCertificate = req.body.accountCertificate;
+//     let sessionCertificate = req.body.sessionCertificate;
+//     let sessionSignature = req.body.sessionSignature;
+
+//     //validates the signature on the accountCertificate using the CAPublicKey
+//     //ensures the accountCertificate is still valid, based on its lifetime
+//     //validates the signature on the sessionCertificate using the accountPublicKey, which is contained in the accountCertificate
+//     //validates the sessionSignature using the sessionPublicKey, which is contained in the sessionCertificate
+//     //ensures the sessionID is one it recently issued
+//     res.sendStatus(200);
+//     res.sendStatus(403);
+
+//     //If all of these are valid, the relying party uses the accountID as an account identifier and stores the sessionPublicKey with that account.
+
+// });
+
 
 app.listen(5001, () => console.log('Server listening on port 5001!'));
